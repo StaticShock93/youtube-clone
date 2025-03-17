@@ -1,38 +1,73 @@
 import Image from 'next/image';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faBars} from '@fortawesome/free-solid-svg-icons';
-import {library} from '@fortawesome/fontawesome-svg-core';
-library.add(faBars);
+import {
+	faBars,
+	faSearch,
+	faMicrophone,
+	faPlus,
+	faBell,
+} from '@fortawesome/free-solid-svg-icons';
+import {faYoutube} from '@fortawesome/free-brands-svg-icons';
 
 export default function Home() {
 	return (
 		<div>
+			{/* MENU / SEARCH / UTILITY / NAV BAR */}
 			<header>
-				<nav className='flex px-10 bg-gray-300 mt-2 mb-2'>
-					<div className='mx-3'>LOGO</div>
-					<ul className='flex justify-between w-full mx-0'>
-						<div>
-							<li>
-								<FontAwesomeIcon icon={faBars} />
+				<nav className='flex shrink grow items-center px-10 mt-4 mb-2 text-xl'>
+					{/* HAMBURGER SIDE MENU TOGGLER */}
+					<ul className='flex flex-shrink justify-between w-full mx-0 items-center'>
+						<div className='cursor-pointer flex items-center flex-shrink'>
+							{/* Toggle Bars */}
+							<li className='flex items-center'>
+								<FontAwesomeIcon
+									className='mr-5 cursor-pointer'
+									icon={faBars}
+								/>
+								{/* YT Premium Icon HomeBtn */}
+								<FontAwesomeIcon icon={faYoutube} style={{color: '#FF0000'}} />
+								<span className='ml-1 flex-shrink-0'>Premium</span>
 							</li>
-							<li></li>
-							{/* 
-              1.) create a toggle hamburger button that will have the leftside menu option 1 or 2 show
-              2.) build icon Premium logo
-              */}
 						</div>
-						<div>
-							<li>center</li>
-							{/* 
-              3.) create center search bar
-              4.) micrphone icon 
-              */}
+            
+						{/* SEARCH BAR AND TALK SEARCH UI */}
+						<div className='flex items-center flex-shrink'>
+							{/* SearchBar */}
+							<li className='flex items-center flex-shrink justify-center'>
+								<input
+									type='text'
+									placeholder='Search'
+									className='flex-shrink border rounded-l-full px-4 py-2 border-gray-300  focus:outline-none focus-ring-2 focus:ringh-blue-500 w-96'
+									// className='border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
+								/>
+								{/* Search Enter Button */}
+								<button className='flex items-center justify-center bg-[#f8f8f8] border border-l-0 border-[#d3d3d3] border-solid rounded-r-full h-[2.875rem] w-15'>
+									<FontAwesomeIcon
+										className='text-gray-500 px-2 py-2'
+										icon={faSearch}
+									/>
+								</button>
+							</li>
+							<li className='flex items-center flex-shrink ml-4 cursor-pointer'>
+								{/* Talk Search Icon */}
+								<FontAwesomeIcon icon={faMicrophone} />
+							</li>
 						</div>
-						<div>
-							<li className='pr-15'>right</li>
-							{/* 
-              5.) build the rightside menu into 3 mini sections
-               */}
+						<div className='flex  items-center justify-between flex-shrink'>
+							<li className=''>
+								<button className='flex items-center justify-around bg-[#f8f8f8] rounded-full px-4 py-2 hover:bg-[#f0f0f0] cursor-pointer'>
+									<FontAwesomeIcon icon={faPlus} />
+									<span className='ml-3'>Create</span>
+								</button>
+							</li>
+							<li className='mx-6 cursor-pointer'>
+								<FontAwesomeIcon icon={faBell} />
+							</li>
+							<li>
+								<div className='flex items-center justify-center border text-[.9em] rounded-full w-8 h-8 bg-blue-500 text-white border-grey-300 cursor-pointer'>
+									<p>C</p>
+								</div>
+							</li>
 						</div>
 					</ul>
 				</nav>
