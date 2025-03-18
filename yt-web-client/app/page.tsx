@@ -8,6 +8,7 @@ import {
 	faBell,
 } from '@fortawesome/free-solid-svg-icons';
 import {faYoutube} from '@fortawesome/free-brands-svg-icons';
+import {CardRow} from './CardRow';
 
 export default function Home() {
 	return (
@@ -28,8 +29,11 @@ export default function Home() {
 								<FontAwesomeIcon icon={faYoutube} style={{color: '#FF0000'}} />
 								<span className='ml-1 flex-shrink-0'>Premium</span>
 							</li>
+							{/* 
+              1.) create a toggle hamburger button that will have the leftside menu option 1 or 2 show
+              2.) build icon Premium logo
+              */}
 						</div>
-            
 						{/* SEARCH BAR AND TALK SEARCH UI */}
 						<div className='flex items-center flex-shrink'>
 							{/* SearchBar */}
@@ -60,22 +64,49 @@ export default function Home() {
 									<span className='ml-3'>Create</span>
 								</button>
 							</li>
-							<li className='mx-6 cursor-pointer'>
+							<li className='mx-6'>
 								<FontAwesomeIcon icon={faBell} />
 							</li>
 							<li>
-								<div className='flex items-center justify-center border text-[.9em] rounded-full w-8 h-8 bg-blue-500 text-white border-grey-300 cursor-pointer'>
+								<button className='flex items-center justify-center px-1 py-[2px] border text-[.9em] rounded-full w-8 h-8 bg-blue-500 text-white border-grey-300'>
 									<p>C</p>
-								</div>
+								</button>
 							</li>
 						</div>
 					</ul>
 				</nav>
 			</header>
 			<main className='flex flex-col gap-[32px] row-start-2 items-center sm:items-start sm:flex-row'>
-				<div className='bg-amber-200 w-full h-screen grid grid-cols-2'>
-					<div className='bg-amber-700 w-50'>LEFT SIDEBAR</div>
-					<div>MAIN CONTENT</div>
+				<div className='w-full h-screen grid grid-cols-[1fr_11fr]'>
+					<section className='bg-amber-200'>LEFT SIDEBAR</section>
+					<section className=''>
+						<nav className='bg-amber-700 w-full h-20'>
+							<button>All</button>
+						</nav>
+						{/* CARD SHOULD ACCEPT API LINK AND RENDER ROWS WITHIN CARDROW COMPONENT */}
+						<CardRow
+							cards={[
+								{
+									id: 1,
+									title: 'Card 1',
+									description: 'Description 1',
+									imageUrl: 'https://via.placeholder.com/150',
+								},
+								{
+									id: 2,
+									title: 'Card 2',
+									description: 'Description 2',
+									imageUrl: 'https://via.placeholder.com/150',
+								},
+								{
+									id: 3,
+									title: 'Card 3',
+									description: 'Description 3',
+									imageUrl: 'https://via.placeholder.com/150',
+								},
+							]}
+						/>
+					</section>
 				</div>
 			</main>
 		</div>
